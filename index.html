@@ -109,57 +109,100 @@
             cursor: pointer;
         }
         
-        /* Hero Section */
+        /* Hero Section - COM LOGO ENORME E BRANCA À DIREITA */
         .hero {
-            background: linear-gradient(rgba(22, 141, 199, 0.9), rgba(22, 141, 199, 0.9)), url('IMG-20240422-WA0054.jpg');
+            background: linear-gradient(rgba(22, 141, 199, 0.88), rgba(22, 141, 199, 0.95)), url('IMG-20240422-WA0054.jpg');
             background-size: cover;
             background-position: center;
             color: white;
             padding: 180px 0 100px;
             text-align: left;
+            position: relative;
+            min-height: 850px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
         }
         
         .hero-content {
-            max-width: 650px;
+            max-width: 550px;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .hero-logo {
+            position: absolute;
+            right: -5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 750px;
+            height: 750px;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.9;
+        }
+        
+        .hero-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: brightness(0) invert(1) drop-shadow(0 15px 40px rgba(0,0,0,0.5));
+            animation: floatLogo 5s ease-in-out infinite;
+        }
+        
+        @keyframes floatLogo {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.03);
+            }
         }
         
         .hero h1 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin-bottom: 20px;
             line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.4);
+            font-weight: 700;
         }
         
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 30px;
             line-height: 1.5;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.3);
         }
         
         .btn-whatsapp-hero {
             display: inline-block;
             background-color: var(--secondary);
             color: white;
-            padding: 15px 30px;
-            border-radius: 5px;
+            padding: 16px 35px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1rem;
             transition: all 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
             display: flex;
             align-items: center;
             width: fit-content;
+            z-index: 3;
+            position: relative;
         }
         
         .btn-whatsapp-hero:hover {
             background-color: #1da851;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
         }
         
         .btn-whatsapp-hero i {
             margin-right: 10px;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
         
         /* Brands Section */
@@ -412,7 +455,7 @@
         }
         
         .about-img {
-            height: 650px;
+            height: 550px;
             border-radius: 10px;
             background-image: url('IMG-20240422-WA0050.jpg');
             background-size: cover;
@@ -662,14 +705,66 @@
         }
         
         /* Responsive */
+        @media (max-width: 1600px) {
+            .hero-logo {
+                width: 700px;
+                height: 700px;
+                right: -8%;
+            }
+        }
+        
+        @media (max-width: 1400px) {
+            .hero-logo {
+                width: 650px;
+                height: 650px;
+                right: -10%;
+            }
+        }
+        
+        @media (max-width: 1200px) {
+            .hero-logo {
+                width: 600px;
+                height: 600px;
+                right: -12%;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.15rem;
+            }
+        }
+        
+        @media (max-width: 1100px) {
+            .hero-logo {
+                width: 550px;
+                height: 550px;
+                right: -15%;
+            }
+            
+            .hero-content {
+                max-width: 500px;
+            }
+        }
+        
         @media (max-width: 992px) {
+            .hero-logo {
+                display: none;
+            }
+            
+            .hero-content {
+                max-width: 650px;
+            }
+            
             .about-content, .contact-content, .reminder-content {
                 grid-template-columns: 1fr;
             }
             
             .about-img, .reminder-img {
                 order: -1;
-                height: 500px;
+                height: 450px;
             }
             
             .gallery-grid {
@@ -682,6 +777,19 @@
             
             .reminder-text h2, .about-text h2 {
                 font-size: 2rem;
+            }
+            
+            .hero {
+                min-height: 700px;
+                padding: 160px 0 80px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.25rem;
             }
         }
         
@@ -710,12 +818,17 @@
                 display: block;
             }
             
+            .hero {
+                min-height: 650px;
+                padding: 150px 0 70px;
+            }
+            
             .hero h1 {
                 font-size: 2.2rem;
             }
             
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1.15rem;
             }
             
             .btn-whatsapp-header {
@@ -743,7 +856,7 @@
             }
             
             .about-img, .reminder-img {
-                height: 430px;
+                height: 380px;
             }
             
             .reminder-text h2, .about-text h2 {
@@ -757,19 +870,29 @@
             }
             
             .about-img, .reminder-img {
-                height: 370px;
+                height: 320px;
             }
             
             .contact-item span {
                 font-size: 1.1rem;
             }
             
+            .hero {
+                min-height: 600px;
+                padding: 140px 0 60px;
+            }
+            
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 1.9rem;
             }
             
             .hero p {
-                font-size: 1rem;
+                font-size: 1.05rem;
+            }
+            
+            .btn-whatsapp-hero {
+                padding: 15px 30px;
+                font-size: 1.1rem;
             }
         }
     </style>
@@ -779,7 +902,7 @@
     <header>
         <div class="container header-container">
             <div class="logo">
-                <img src="logo.jpg" alt="Florip'AR Condicionado">
+                <img src="logo.png" alt="Florip'AR Condicionado">
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Início</a></li>
@@ -799,7 +922,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section COM LOGO ENORME E BRANCA À DIREITA -->
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
@@ -809,8 +932,14 @@
                     <i class="fab fa-whatsapp"></i> Solicitar Orçamento
                 </a>
             </div>
+            <!-- Logo ENORME E BRANCA à direita (aparece apenas em telas grandes) -->
+            <div class="hero-logo">
+                <img src="logo.png" alt="Florip'AR Condicionado">
+            </div>
         </div>
     </section>
+
+    <!-- Resto do código permanece igual... -->
 
     <!-- Brands Section -->
     <section class="brands">
@@ -834,7 +963,7 @@
                     </div>
                     <h3>Instalação de Sistemas</h3>
                     <p>VRF, Split, Multi Split e sistemas industriais com equipe técnica experiente e capacitada.</p>
-                    <a href="https://wa.me/5548991424389?text=Olá! Gostaria de solicitar um orçamento para serviços de ar condicionado." class="service-link" target="_blank">
+                    <a href="https://wa.me/5548991424389?text=Olá! Gostaria de solicitar um orçamento para instalação de ar condicionado." class="service-link" target="_blank">
                         Solicitar orçamento <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -844,7 +973,7 @@
                     </div>
                     <h3>Manutenção Preventiva</h3>
                     <p>Garantia de eficiência e alto desempenho dos equipamentos com manutenção especializada.</p>
-                    <a href="https://wa.me/5548991424389?text=Olá! Gostaria de solicitar um orçamento para serviços de ar condicionado." class="service-link" target="_blank">
+                    <a href="https://wa.me/5548991424389?text=Olá! Gostaria de agendar uma manutenção preventiva para meu ar condicionado." class="service-link" target="_blank">
                         Agendar manutenção <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -854,7 +983,7 @@
                     </div>
                     <h3>Manutenção Corretiva</h3>
                     <p>Identificamos e corrigimos problemas existentes em seu equipamento com agilidade.</p>
-                    <a href="https://wa.me/5548991424389?text=Olá! Gostaria de solicitar um orçamento para serviços de ar condicionado." class="service-link" target="_blank">
+                    <a href="https://wa.me/5548991424389?text=Olá! Meu ar condicionado está com problema, preciso de conserto." class="service-link" target="_blank">
                         Solicitar conserto <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -864,7 +993,7 @@
                     </div>
                     <h3>Limpeza e Higienização</h3>
                     <p>Limpeza completa de dutos e evaporadoras para garantir ar puro e saudável.</p>
-                    <a href="https://wa.me/5548991424389?text=Olá! Gostaria de solicitar um orçamento para serviços de ar condicionado." class="service-link" target="_blank">
+                    <a href="https://wa.me/5548991424389?text=Olá! Gostaria de agendar uma limpeza e higienização do meu ar condicionado." class="service-link" target="_blank">
                         Agendar limpeza <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -874,7 +1003,7 @@
                     </div>
                     <h3>Avaliação de Eficiência</h3>
                     <p>Avaliação de eficiência e consumo energético para otimizar performance e economia.</p>
-                    <a href="https://wa.me/5548991424389?text=Olá! Gostaria de solicitar um orçamento para serviços de ar condicionado." class="service-link" target="_blank">
+                    <a href="https://wa.me/5548991424389?text=Olá! Gostaria de uma avaliação de eficiência do meu sistema de ar condicionado." class="service-link" target="_blank">
                         Solicitar avaliação <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -884,7 +1013,7 @@
                     </div>
                     <h3>Contratos de Manutenção</h3>
                     <p>Contratos sob medida para empresas, condomínios e residências com atendimento personalizado.</p>
-                    <a href="https://wa.me/5548991424389?text=Olá! Gostaria de solicitar um orçamento para serviços de ar condicionado." class="service-link" target="_blank">
+                    <a href="https://wa.me/5548991424389?text=Olá! Gostaria de informações sobre contratos de manutenção." class="service-link" target="_blank">
                         Saber mais <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -921,7 +1050,7 @@
                             <span>Mantém o conforto térmico ideal</span>
                         </div>
                     </div>
-                    <a href="https://wa.me/5548991424389?text=Olá! Gostaria de solicitar um orçamento para serviços de ar condicionado." class="btn-whatsapp-hero" target="_blank" style="margin-top: 20px;">
+                    <a href="https://wa.me/5548991424389?text=Olá! Gostaria de agendar uma manutenção preventiva para meu ar condicionado." class="btn-whatsapp-hero" target="_blank" style="margin-top: 20px;">
                         <i class="fab fa-whatsapp"></i> Agendar Manutenção
                     </a>
                 </div>
@@ -998,7 +1127,7 @@
                     </div>
                 </div>
                 <div class="about-img">
-                    <!-- Imagem de fundo aplicada via CSS - ALTURA AUMENTADA PARA 650px -->
+                    <!-- Imagem de fundo aplicada via CSS -->
                 </div>
             </div>
         </div>
@@ -1069,7 +1198,7 @@
                     <h3>Florip'AR Condicionado</h3>
                     <p style="color: #adb5bd; margin-bottom: 20px;">Tecnologia e conforto em cada ambiente. Especialistas em sistemas de ar condicionado para ambientes residenciais, comerciais e industriais.</p>
                     <div class="logo" style="background-color: transparent; color: white; padding: 0; justify-content: flex-start;">
-                        <img src="logo.jpg" alt="Florip'AR Condicionado" style="filter: brightness(0) invert(1); max-height: 50px;">
+                        <img src="logo.png" alt="Florip'AR Condicionado" style="filter: brightness(0) invert(1); max-height: 50px;">
                     </div>
                 </div>
                 <div class="footer-column">
@@ -1108,7 +1237,7 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/5548991424389?text=Olá! Gostaria de solicitar um orçamento para serviços de ar condicionado." class="floating-whatsapp" target="_blank">
+    <a href="https://wa.me/5548991424389?text=Olá! Gostaria de informações sobre serviços de ar condicionado." class="floating-whatsapp" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
