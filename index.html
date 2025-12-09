@@ -118,7 +118,7 @@
             padding: 180px 0 100px;
             text-align: left;
             position: relative;
-            min-height: 850px;
+            min-height: 800px;
             display: flex;
             align-items: center;
             overflow: hidden;
@@ -132,11 +132,11 @@
         
         .hero-logo {
             position: absolute;
-            right: -5%;
+            right: 0%;
             top: 50%;
             transform: translateY(-50%);
-            width: 750px;
-            height: 750px;
+            width: 700px;
+            height: 700px;
             z-index: 2;
             display: flex;
             align-items: center;
@@ -313,7 +313,7 @@
             transform: translateX(5px);
         }
         
-        /* Maintenance Reminder Section */
+        /* Maintenance Reminder Section - IMAGEM CORRIGIDA */
         .maintenance-reminder {
             padding: 80px 0;
             background-color: #f0f7ff;
@@ -359,9 +359,10 @@
             height: 550px;
             border-radius: 10px;
             background-image: url('559207132_18077673743485376_6784845747341507513_n.jpg');
-            background-size: cover;
+            background-size: contain; /* Alterado de cover para contain */
             background-position: center;
             background-repeat: no-repeat;
+            background-color: #f8f9fa; /* Fundo para áreas vazias */
         }
         
         /* Benefits Section */
@@ -412,7 +413,7 @@
             color: #666;
         }
         
-        /* About Section */
+        /* About Section - IMAGEM CORRIGIDA */
         .about {
             padding: 100px 0;
             background-color: #f0f7ff;
@@ -458,12 +459,13 @@
             height: 550px;
             border-radius: 10px;
             background-image: url('IMG-20240422-WA0050.jpg');
-            background-size: cover;
+            background-size: contain; /* Alterado de cover para contain */
             background-position: center;
             background-repeat: no-repeat;
+            background-color: #f8f9fa; /* Fundo para áreas vazias */
         }
         
-        /* Gallery Section */
+        /* Gallery Section - COM AJUSTES PARA CADA FOTO */
         .gallery {
             padding: 100px 0;
             background-color: white;
@@ -482,6 +484,8 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             transition: transform 0.3s;
             background: white;
+            height: 300px; /* Altura padrão para desktop */
+            width: 100%;
         }
         
         .gallery-item:hover {
@@ -490,9 +494,29 @@
         
         .gallery-item img {
             width: 100%;
-            height: 350px;
-            object-fit: cover;
+            height: 100%;
+            object-fit: contain; /* Alterado de 'cover' para 'contain' para mostrar a imagem inteira */
             display: block;
+            background-color: #f8f9fa; /* Cor de fundo para imagens quadradas */
+        }
+        
+        /* Ajustes específicos para cada imagem baseado nas dimensões */
+        .gallery-item:nth-child(1) img {
+            /* 1024x1024 - Quadrada */
+            object-fit: contain;
+            background-color: #f8f9fa;
+        }
+        
+        .gallery-item:nth-child(2) img {
+            /* 1440x1440 - Quadrada */
+            object-fit: contain;
+            background-color: #f8f9fa;
+        }
+        
+        .gallery-item:nth-child(3) img {
+            /* 656x739 - Retangular vertical */
+            object-fit: contain;
+            background-color: #f8f9fa;
         }
         
         /* Contact Section */
@@ -664,7 +688,7 @@
             font-size: 0.9rem;
         }
         
-        /* Floating WhatsApp Button */
+        /* Floating WhatsApp Button - CORRIGIDO PARA CELULAR */
         .floating-whatsapp {
             position: fixed;
             bottom: 25px;
@@ -677,7 +701,7 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            z-index: 1000;
+            z-index: 9999;
             animation: pulse 2s infinite;
             transition: all 0.3s;
         }
@@ -707,25 +731,25 @@
         /* Responsive */
         @media (max-width: 1600px) {
             .hero-logo {
-                width: 700px;
-                height: 700px;
-                right: -8%;
+                width: 650px;
+                height: 650px;
+                right: -2%;
             }
         }
         
         @media (max-width: 1400px) {
             .hero-logo {
-                width: 650px;
-                height: 650px;
-                right: -10%;
+                width: 600px;
+                height: 600px;
+                right: -3%;
             }
         }
         
         @media (max-width: 1200px) {
             .hero-logo {
-                width: 600px;
-                height: 600px;
-                right: -12%;
+                width: 550px;
+                height: 550px;
+                right: -5%;
             }
             
             .hero h1 {
@@ -739,9 +763,9 @@
         
         @media (max-width: 1100px) {
             .hero-logo {
-                width: 550px;
-                height: 550px;
-                right: -15%;
+                width: 500px;
+                height: 500px;
+                right: -7%;
             }
             
             .hero-content {
@@ -751,11 +775,15 @@
         
         @media (max-width: 992px) {
             .hero-logo {
-                display: none;
+                width: 400px;
+                height: 400px;
+                right: -5%;
+                top: 40%;
             }
             
             .hero-content {
-                max-width: 650px;
+                max-width: 450px;
+                margin-top: 50px;
             }
             
             .about-content, .contact-content, .reminder-content {
@@ -764,15 +792,11 @@
             
             .about-img, .reminder-img {
                 order: -1;
-                height: 450px;
+                height: 500px; /* Aumentei de 450px para 500px */
             }
             
             .gallery-grid {
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            }
-            
-            .gallery-item img {
-                height: 300px;
             }
             
             .reminder-text h2, .about-text h2 {
@@ -785,15 +809,34 @@
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.3rem;
             }
             
             .hero p {
-                font-size: 1.25rem;
+                font-size: 1.15rem;
             }
         }
         
         @media (max-width: 768px) {
+            /* CORREÇÃO: Logo mais acima e maior em mobile - AJUSTE FINAL */
+            .hero-logo {
+                width: 360px; /* Aumentei de 320px para 360px */
+                height: 360px;
+                right: 50%;
+                top: 15%; /* Subi a logo ainda mais (era 18%) */
+                transform: translateX(50%);
+                opacity: 0.85;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+                margin-top: 160px; /* Aumentei o margin-top ainda mais (era 140px) */
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
             .nav-links {
                 display: none;
                 position: absolute;
@@ -819,16 +862,18 @@
             }
             
             .hero {
-                min-height: 650px;
-                padding: 150px 0 70px;
+                min-height: 800px; /* Aumentei a altura mínima para 800px */
+                padding: 140px 0 60px;
+                display: block;
             }
             
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
+                margin-top: 20px;
             }
             
             .hero p {
-                font-size: 1.15rem;
+                font-size: 1.1rem;
             }
             
             .btn-whatsapp-header {
@@ -847,30 +892,116 @@
                 max-width: 100%;
             }
             
+            /* CORREÇÃO: Galeria em mobile com cada imagem mostrando inteira */
             .gallery-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .gallery-item {
+                height: auto; /* Altura automática para se ajustar ao conteúdo */
+                min-height: 280px; /* Altura mínima */
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
             
             .gallery-item img {
-                height: 280px;
+                width: 100%;
+                height: auto;
+                max-height: 400px; /* Altura máxima para evitar imagens muito grandes */
+                object-fit: contain; /* Mostra a imagem inteira */
+                padding: 10px; /* Espaçamento interno */
             }
             
+            /* Ajustes específicos para mobile baseado nas dimensões das fotos */
+            .gallery-item:nth-child(1) img {
+                /* 1024x1024 - Quadrada - ocupa toda largura */
+                max-width: 100%;
+                max-height: 350px;
+            }
+            
+            .gallery-item:nth-child(2) img {
+                /* 1440x1440 - Quadrada - um pouco maior */
+                max-width: 100%;
+                max-height: 380px;
+            }
+            
+            .gallery-item:nth-child(3) img {
+                /* 656x739 - Retangular vertical */
+                max-width: 85%; /* Um pouco menor para caber melhor */
+                max-height: 400px;
+            }
+            
+            /* CORREÇÃO: Imagens de fundo maiores para mobile */
             .about-img, .reminder-img {
-                height: 380px;
+                height: 600px; /* Aumentei significativamente de 350px para 600px */
+                background-size: contain; /* Garante que a imagem inteira aparece */
+                background-position: center;
+                background-repeat: no-repeat;
+                background-color: #f8f9fa; /* Fundo para áreas vazias */
             }
             
             .reminder-text h2, .about-text h2 {
                 font-size: 1.8rem;
             }
+            
+            /* Correção WhatsApp flutuante no celular */
+            .floating-whatsapp {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                z-index: 10000;
+            }
+            
+            .floating-whatsapp i {
+                font-size: 1.6rem;
+            }
         }
         
         @media (max-width: 480px) {
-            .gallery-item img {
-                height: 250px;
+            /* CORREÇÃO: Ajustes para telas pequenas - LOGO AINDA MAIOR E MAIS PARA CIMA */
+            .hero-logo {
+                width: 320px; /* Aumentei de 280px para 320px */
+                height: 320px;
+                top: 13%; /* Subi mais a logo (era 16%) */
             }
             
+            .hero-content {
+                margin-top: 150px; /* Ajustei o margin-top */
+            }
+            
+            .gallery-grid {
+                gap: 15px;
+            }
+            
+            .gallery-item {
+                min-height: 250px;
+            }
+            
+            .gallery-item img {
+                max-height: 350px;
+                padding: 8px;
+            }
+            
+            .gallery-item:nth-child(1) img {
+                max-height: 300px;
+            }
+            
+            .gallery-item:nth-child(2) img {
+                max-height: 320px;
+            }
+            
+            .gallery-item:nth-child(3) img {
+                max-width: 80%;
+                max-height: 350px;
+            }
+            
+            /* CORREÇÃO: Imagens de fundo maiores para mobile pequeno */
             .about-img, .reminder-img {
-                height: 320px;
+                height: 500px; /* Aumentei de 280px para 500px */
             }
             
             .contact-item span {
@@ -878,21 +1009,74 @@
             }
             
             .hero {
-                min-height: 600px;
-                padding: 140px 0 60px;
+                min-height: 750px;
+                padding: 130px 0 50px;
             }
             
             .hero h1 {
-                font-size: 1.9rem;
+                font-size: 1.8rem;
             }
             
             .hero p {
-                font-size: 1.05rem;
+                font-size: 1rem;
             }
             
             .btn-whatsapp-hero {
-                padding: 15px 30px;
-                font-size: 1.1rem;
+                padding: 14px 28px;
+                font-size: 1rem;
+            }
+            
+            .floating-whatsapp {
+                bottom: 15px;
+                right: 15px;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .floating-whatsapp i {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .hero-logo {
+                width: 280px; /* Aumentei de 240px para 280px */
+                height: 280px;
+                top: 12%;
+            }
+            
+            .hero-content {
+                margin-top: 140px;
+            }
+            
+            .gallery-item {
+                min-height: 220px;
+            }
+            
+            .gallery-item img {
+                max-height: 300px;
+            }
+            
+            .gallery-item:nth-child(1) img {
+                max-height: 260px;
+            }
+            
+            .gallery-item:nth-child(2) img {
+                max-height: 280px;
+            }
+            
+            .gallery-item:nth-child(3) img {
+                max-width: 75%;
+                max-height: 300px;
+            }
+            
+            /* CORREÇÃO: Imagens de fundo para mobile muito pequeno */
+            .about-img, .reminder-img {
+                height: 450px; /* Aumentei ainda mais */
+            }
+            
+            .hero h1 {
+                font-size: 1.6rem;
             }
         }
     </style>
@@ -938,8 +1122,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Resto do código permanece igual... -->
 
     <!-- Brands Section -->
     <section class="brands">
@@ -1127,7 +1309,7 @@
                     </div>
                 </div>
                 <div class="about-img">
-                    <!-- Imagem de fundo aplicada via CSS -->
+                    <!-- Imagem de fundo: IMG-20240422-WA0050.jpg -->
                 </div>
             </div>
         </div>
@@ -1236,7 +1418,7 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
+    <!-- Floating WhatsApp Button - SEMPRE VISÍVEL -->
     <a href="https://wa.me/5548991424389?text=Olá! Gostaria de informações sobre serviços de ar condicionado." class="floating-whatsapp" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
